@@ -9,24 +9,34 @@
             text-align: center;
             font-family: Arial, sans-serif;
             background-color: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
         }
         .container {
-            margin-top: 15%;
+            max-width: 90%;
         }
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: red;
         }
         .buttons {
             margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
         button {
-            font-size: 1.5rem;
-            padding: 10px 20px;
-            margin: 10px;
+            font-size: 1.2rem;
+            padding: 12px 25px;
             border: none;
             cursor: pointer;
             border-radius: 10px;
+            width: 200px;
         }
         #yes {
             background-color: red;
@@ -48,11 +58,17 @@
         </div>
     </div>
     <script>
-        document.getElementById("no").addEventListener("mouseover", function() {
+        const noButton = document.getElementById("no");
+        const messages = ["Are you sure? 😢", "Think again! 🤔", "But why? 😭", "Give it another thought! 🥺", "Don’t break my heart 💔", "You sure? Really? 🥲"];
+        let index = 0;
+
+        noButton.addEventListener("mouseover", function() {
             let x = Math.random() * (window.innerWidth - 100);
             let y = Math.random() * (window.innerHeight - 50);
             this.style.left = x + "px";
             this.style.top = y + "px";
+            this.textContent = messages[index % messages.length];
+            index++;
         });
     </script>
 </body>
